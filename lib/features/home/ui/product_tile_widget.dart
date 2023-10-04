@@ -2,17 +2,16 @@ import 'package:bloc_app/data/cart_items.dart';
 import 'package:bloc_app/data/wishlist_items.dart';
 import 'package:bloc_app/features/home/models/home_product_data_model.dart';
 import 'package:flutter/material.dart';
+import 'package:bloc_app/features/home/bloc/home_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProductTileWidget extends StatefulWidget {
-  const ProductTileWidget({super.key, required this.productDataModel});
-
+class ProductTileWidget extends StatelessWidget {
   final ProductDataModel productDataModel;
+  final HomeBloc homeBloc;
 
-  @override
-  State<ProductTileWidget> createState() => _ProductTileWidgetState();
-}
+  const ProductTileWidget(
+      {super.key, required this.productDataModel, required this.homeBloc});
 
-class _ProductTileWidgetState extends State<ProductTileWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,29 +27,33 @@ class _ProductTileWidgetState extends State<ProductTileWidget> {
       child: Column(
         children: [
           Image.network(
-            widget.productDataModel.image,
+            productDataModel.image,
           ),
           ListTile(
               title: Text(
-                widget.productDataModel.name,
+                productDataModel.name,
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Row(
                 children: [
-                  Text('\$ ${widget.productDataModel.price}'),
+                  Text('\$ ${productDataModel.price}'),
                   const Spacer(),
                   IconButton(
                       onPressed: () {
                         //print('Before: ${wishlistItems[0]}');
-                        wishlistItems.add(widget.productDataModel);
-                        print(wishlistItems[0]);
-                        //homeBloc.add(HomeProductWishlistButtonNavigateEvent());
+                        // wishlistItems.add(widget.productDataModel);
+                        // print(wishlistItems[0]);
+                        homeBloc.add(HomeProductWishlistButtonClickedEvent(
+                          clickedProduct: productDataModel,
+                        ));
                       },
                       icon: const Icon(Icons.favorite_border_outlined)),
                   IconButton(
                       onPressed: () {
                         //cartItems.add(widget.productDataModel);
-                        // homeBloc.add(HomeProductCartButtonNavigateEvent());
+                        homeBloc.add(HomeProductCartButtonClickedEvent(
+                          clickedProduct: productDataModel,
+                        ));
                       },
                       icon: const Icon(Icons.shopping_bag_outlined)),
                 ],

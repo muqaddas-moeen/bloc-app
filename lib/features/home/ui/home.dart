@@ -40,6 +40,16 @@ class _HomeScreenState extends State<HomeScreen> {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const WishListScreen()));
         }
+        if (state is HomeClickedToWishlistButtonActionState) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Item added in wishlist')));
+        }
+        if (state is HomeClickedToCartButtonActionState) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Item added in cart')));
+        }
       },
       builder: (context, state) {
         switch (state.runtimeType) {
@@ -70,7 +80,9 @@ class _HomeScreenState extends State<HomeScreen> {
               body: ListView.builder(
                   itemCount: successState.products.length,
                   itemBuilder: (context, index) => ProductTileWidget(
-                      productDataModel: successState.products[index])),
+                        productDataModel: successState.products[index],
+                        homeBloc: homeBloc,
+                      )),
             );
           case HomeErrorState:
             return const Scaffold(
