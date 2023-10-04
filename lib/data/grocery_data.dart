@@ -1,4 +1,4 @@
-import 'package:bloc_app/features/home/models/home_product_data_model.dart';
+import 'package:bloc_app/models/home_product_data_model.dart';
 
 List<ProductDataModel> groceryProducts = [
   ProductDataModel(
@@ -10,100 +10,28 @@ List<ProductDataModel> groceryProducts = [
       image:
           'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'),
   ProductDataModel(
-      id: '2',
-      name: 'Apples',
-      category: 'Fruit',
-      price: 2.99,
-      quantity: 5,
-      image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'),
+    id: '2',
+    name: 'Mango',
+    category: 'Fruit',
+    price: 2.99,
+    quantity: 5,
+    image:
+        'https://www.verywellhealth.com/thmb/hXMvqirIZ98Gn6w5bkhO4UkkXRE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1392614128-b6ff76b34a7f429995ed571015d1a680.jpg',
+  ),
   ProductDataModel(
       id: '3',
-      name: 'Apples',
+      name: 'Banana',
       category: 'Fruit',
       price: 2.99,
       quantity: 5,
       image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'),
+          'https://www.forbesindia.com/media/images/2022/Sep/img_193773_banana.jpg'),
   ProductDataModel(
       id: '4',
-      name: 'Apples',
+      name: 'Grapes',
       category: 'Fruit',
       price: 2.99,
       quantity: 5,
       image:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'),
-
-  //    {
-  //   'id': '1',
-  //   'name': 'Apples',
-  //   'category': 'Fruits',
-  //   'price': 2.99,
-  //   'quantity': 5,
-  //   'image':
-  //       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'
-  // },
-  // {
-  //   'id': '2',
-  //   'name': 'Bananas',
-  //   'category': 'Fruits',
-  //   'price': 1.49,
-  //   'quantity': 6,
-  //   'image':
-  //       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'
-  // },
-  // {
-  //   'id': '3',
-  //   'name': 'Mangoes',
-  //   'category': 'Fruits',
-  //   'price': 2.99,
-  //   'quantity': 5,
-  //   'image':
-  //       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'
-  // },
-  // {
-  //   'id': '4',
-  //   'name': 'Grapes',
-  //   'category': 'Fruits',
-  //   'price': 1.49,
-  //   'quantity': 6,
-  //   'image':
-  //       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'
-  // },
-  // {
-  //   'id': '5',
-  //   'name': 'Cherry',
-  //   'category': 'Fruits',
-  //   'price': 2.99,
-  //   'quantity': 5,
-  //   'image':
-  //       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'
-  // },
-  // {
-  //   'id': '6',
-  //   'name': 'Blueberry',
-  //   'category': 'Fruits',
-  //   'price': 1.49,
-  //   'quantity': 6,
-  //   'image':
-  //       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'
-  // },
-  // {
-  //   'id': '7',
-  //   'name': 'Raspberry',
-  //   'category': 'Fruits',
-  //   'price': 2.99,
-  //   'quantity': 5,
-  //   'image':
-  //       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'
-  // },
-  // {
-  //   'id': '8',
-  //   'name': 'Apricot',
-  //   'category': 'Fruits',
-  //   'price': 1.49,
-  //   'quantity': 6,
-  //   'image':
-  //       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/640px-Mangos_-_single_and_halved.jpg'
-  // },
+          'https://cdn.freshfruitportal.com/2023/05/nati-melnychuk-KyFEImlFKQY-unsplash-scaled.jpg'),
 ];

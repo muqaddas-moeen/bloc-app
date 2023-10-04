@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:bloc_app/data/cart_items.dart';
 import 'package:bloc_app/data/grocery_data.dart';
 import 'package:bloc_app/data/wishlist_items.dart';
-import 'package:bloc_app/features/home/models/home_product_data_model.dart';
+import 'package:bloc_app/models/home_product_data_model.dart';
 import 'package:meta/meta.dart';
 
 part 'home_event.dart';
@@ -50,13 +50,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       if (item.id == event.clickedProduct.id) {
         found = true;
         wishlistItems.remove(event.clickedProduct);
-        emit(HomeLoadedSuccessState(products: groceryProducts));
+        //emit(HomeLoadedSuccessState(products: groceryProducts));
         emit(HomeExistedItemInTheListRemoved());
       }
     }
     if (found == false) {
       wishlistItems.add(event.clickedProduct);
-      //emit(HomeLoadedSuccessState(products: groceryProducts));
+      emit(HomeLoadedSuccessState(products: groceryProducts));
       emit(HomeClickedToWishlistButtonActionState());
     }
   }

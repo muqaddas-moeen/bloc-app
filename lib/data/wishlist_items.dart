@@ -1,3 +1,3 @@
-import 'package:bloc_app/features/home/models/home_product_data_model.dart';
+import 'package:bloc_app/models/home_product_data_model.dart';
 
 List<ProductDataModel> wishlistItems = [];

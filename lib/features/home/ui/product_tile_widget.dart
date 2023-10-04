@@ -1,6 +1,6 @@
 import 'package:bloc_app/data/cart_items.dart';
 import 'package:bloc_app/data/wishlist_items.dart';
-import 'package:bloc_app/features/home/models/home_product_data_model.dart';
+import 'package:bloc_app/models/home_product_data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc_app/features/home/bloc/home_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,13 +9,16 @@ class ProductTileWidget extends StatelessWidget {
   final ProductDataModel productDataModel;
   final HomeBloc homeBloc;
 
-  const ProductTileWidget(
-      {super.key, required this.productDataModel, required this.homeBloc});
+  ProductTileWidget(
+      {super.key,
+      required this.productDataModel,
+      required this.homeBloc,
+      required this.iconClicked});
+
+  bool iconClicked = false;
 
   @override
   Widget build(BuildContext context) {
-    bool iconClicked = false;
-
     Icon choosenIcon() {
       if (iconClicked) {
         return const Icon(Icons.favorite);
@@ -51,10 +54,9 @@ class ProductTileWidget extends StatelessWidget {
                   Text('\$ ${productDataModel.price}'),
                   const Spacer(),
                   IconButton(
-                    icon: choosenIcon(),
-                    // (iconClicked == true)
-                    //     ? const Icon(Icons.favorite)
-                    //     : const Icon(Icons.favorite_border_outlined),
+                    icon: (iconClicked == true)
+                        ? const Icon(Icons.favorite)
+                        : const Icon(Icons.favorite_border_outlined),
                     onPressed: () {
                       iconClicked = !iconClicked;
                       print('clicked = ${iconClicked}');

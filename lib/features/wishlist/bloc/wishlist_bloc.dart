@@ -3,10 +3,9 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:bloc_app/data/grocery_data.dart';
 import 'package:bloc_app/data/wishlist_items.dart';
-import 'package:bloc_app/features/wishlist/models/wishlist_product_data_model.dart';
 import 'package:meta/meta.dart';
 
-import '../../home/models/home_product_data_model.dart';
+import '../../../models/home_product_data_model.dart';
 
 part 'wishlist_event.dart';
 part 'wishlist_state.dart';

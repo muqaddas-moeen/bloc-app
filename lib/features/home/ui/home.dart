@@ -87,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemBuilder: (context, index) => ProductTileWidget(
                         productDataModel: successState.products[index],
                         homeBloc: homeBloc,
+                        iconClicked: false,
                       )),
             );
           case HomeErrorState:
