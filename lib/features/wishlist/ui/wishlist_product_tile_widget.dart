@@ -17,7 +17,7 @@ class WishlistProductTileWidget extends StatelessWidget {
       title: Text(wishlistProducts.name),
       subtitle: Text('\$ ${wishlistProducts.price}'),
       trailing: IconButton(
-        icon: const Icon(Icons.delete_forever_outlined),
+        icon: const Icon(Icons.delete_outlined),
         onPressed: () {
           wishlistBloc.add(WishlistItemDeleteButtonClickedEvent(
               clickedProduct: wishlistProducts));

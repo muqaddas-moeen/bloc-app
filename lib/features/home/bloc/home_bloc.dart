@@ -32,20 +32,33 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(HomeLoadedSuccessState(
         products: groceryProducts
             .map((e) => ProductDataModel(
-                id: e['id'],
-                name: e['name'],
-                category: e['category'],
-                price: e['price'],
-                quantity: e['quantity'],
-                image: e['image']))
+                id: e.id,
+                name: e.name,
+                category: e.category,
+                price: e.price,
+                quantity: e.quantity,
+                image: e.image))
             .toList()));
   }
 
   FutureOr<void> homeProductWishlistButtonClickedEvent(
       HomeProductWishlistButtonClickedEvent event, Emitter<HomeState> emit) {
     print('Whishist product clicked');
-    wishlistItems.add(event.clickedProduct);
-    emit(HomeClickedToWishlistButtonActionState());
+    bool found = false;
+
+    for (final item in wishlistItems) {
+      if (item.id == event.clickedProduct.id) {
+        found = true;
+        wishlistItems.remove(event.clickedProduct);
+        emit(HomeLoadedSuccessState(products: groceryProducts));
+        emit(HomeExistedItemInTheListRemoved());
+      }
+    }
+    if (found == false) {
+      wishlistItems.add(event.clickedProduct);
+      //emit(HomeLoadedSuccessState(products: groceryProducts));
+      emit(HomeClickedToWishlistButtonActionState());
+    }
   }
 
   FutureOr<void> homeProductCartButtonClickedEvent(

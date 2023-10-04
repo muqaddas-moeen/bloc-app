@@ -14,6 +14,18 @@ class ProductTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool iconClicked = false;
+
+    Icon choosenIcon() {
+      if (iconClicked) {
+        return const Icon(Icons.favorite);
+      } else {
+        return const Icon(Icons.favorite_border_outlined);
+      }
+    }
+
+    print('enter ${iconClicked}');
+
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
@@ -39,15 +51,18 @@ class ProductTileWidget extends StatelessWidget {
                   Text('\$ ${productDataModel.price}'),
                   const Spacer(),
                   IconButton(
-                      onPressed: () {
-                        //print('Before: ${wishlistItems[0]}');
-                        // wishlistItems.add(widget.productDataModel);
-                        // print(wishlistItems[0]);
-                        homeBloc.add(HomeProductWishlistButtonClickedEvent(
-                          clickedProduct: productDataModel,
-                        ));
-                      },
-                      icon: const Icon(Icons.favorite_border_outlined)),
+                    icon: choosenIcon(),
+                    // (iconClicked == true)
+                    //     ? const Icon(Icons.favorite)
+                    //     : const Icon(Icons.favorite_border_outlined),
+                    onPressed: () {
+                      iconClicked = !iconClicked;
+                      print('clicked = ${iconClicked}');
+                      homeBloc.add(HomeProductWishlistButtonClickedEvent(
+                        clickedProduct: productDataModel,
+                      ));
+                    },
+                  ),
                   IconButton(
                       onPressed: () {
                         //cartItems.add(widget.productDataModel);

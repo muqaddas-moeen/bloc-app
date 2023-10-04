@@ -25,3 +25,5 @@ class HomeNavigateToCartPageActionState extends HomeActionState {}
 class HomeClickedToWishlistButtonActionState extends HomeActionState {}
 
 class HomeClickedToCartButtonActionState extends HomeActionState {}
+
+class HomeExistedItemInTheListRemoved extends HomeActionState {}

@@ -50,6 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Item added in cart')));
         }
+        if (state is HomeExistedItemInTheListRemoved) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Item removed from wishlist')));
+        }
       },
       builder: (context, state) {
         switch (state.runtimeType) {
