@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,73 +16,74 @@ class _SignUpState extends State<SignUp> {
         children: <Widget>[
           Positioned(
             bottom: 500,
+            left: 20,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Welcome \nBack!',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+                Container(
+                  width: 250,
+                  height: 250,
+                  //color: Colors.green,
+                  child: Image.asset('assets/images/auth.png'),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 0.1,
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: 300,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(20.0),
-                    bottomLeft: Radius.elliptical(300.0, 200.0)),
+                    // bottomRight: Radius.circular(20.0),
+                    topRight: Radius.elliptical(300.0, 200.0)),
                 color: Colors.deepOrange,
               ),
             ),
           ),
+          // Positioned(
+          //   bottom: 5,
+          //   right: 130,
+          //   child: Container(
+          //     width: 300,
+          //     height: 300,
+          //     //color: Colors.green,
+          //     child: Image.asset('assets/images/auth.png'),
+          //   ),
+          // ),
           Positioned(
-            bottom: 5,
-            right: 130,
-            child: Container(
-              width: 300,
-              height: 300,
-              //color: Colors.green,
-              child: Image.asset('assets/images/auth.png'),
-            ),
-          ),
-          Positioned(
-            bottom: 180,
+            bottom: 20,
             left: 20,
             child: Container(
               padding: const EdgeInsets.all(20),
               width: 320,
-              height: 550,
+              height: 520,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(20.0),
-                    bottomLeft: Radius.elliptical(300.0, 200.0)),
+                    bottomLeft: Radius.circular(20.0),
+                    topRight: Radius.elliptical(300.0, 200.0)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey,
                     blurRadius: 2.0,
                     spreadRadius: 0.0,
-                    offset: Offset(2.0, 2.0), // shadow direction: bottom right
+                    offset: Offset(1.0, 1.0), // shadow direction: bottom right
                   )
                 ],
                 color: Colors.white,
               ),
               child: Column(
                 children: [
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        const Text(
-                          'Already have an account? ',
-                          //style: TextStyle(fontSize: 0),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'LogIn ',
-                            //style: TextStyle(fontSize: 0),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
                   const SizedBox(
                     height: 60,
                   ),
                   const Text(
-                    'Get On Board!',
+                    'LogIn',
                     style: TextStyle(fontSize: 30),
                   ),
                   const SizedBox(
@@ -106,21 +107,32 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Expanded(
                     child: TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                width: 3,
-                                color: Color.fromARGB(
-                                    255, 233, 225, 225)), //<-- SEE HERE
-                            borderRadius: BorderRadius.circular(50.0),
-                          ),
-                          label: const Text('******'),
-                          prefixIcon: const Icon(Icons.lock)),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              width: 3,
+                              color: Color.fromARGB(
+                                  255, 233, 225, 225)), //<-- SEE HERE
+                          borderRadius: BorderRadius.circular(50.0),
+                        ),
+                        label: const Text('******'),
+                        prefixIcon: const Icon(Icons.lock),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Forget Paassword?',
+                      //style: TextStyle(fontSize: 0),
                     ),
                   ),
                   const SizedBox(

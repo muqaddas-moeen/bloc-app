@@ -1,3 +1,4 @@
+import 'package:bloc_app/features/authentication/sign_in/sign_in.dart';
 import 'package:bloc_app/features/authentication/sign_up/sign_up.dart';
 import 'package:bloc_app/features/home/ui/home.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
                 backgroundColor: MaterialStatePropertyAll(Colors.deepOrange))),
         useMaterial3: true,
       ),
-      home: const SignUp(),
+      home: const SignIn(),
     );
   }
 }
